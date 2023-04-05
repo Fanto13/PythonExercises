@@ -9,11 +9,11 @@ print(s1[::-1])#ci permette di accedere a sottoporzioni di stringhe ed array, in
 
 L=[1,2,3,4,5,6,7,8,9,10]
 print(L)
-print([L[2]])
+print([L[2]])#stampa la terza posizione della lista
+print(len(L))#stampa la lunghezza della lista
+print(L[3:1:-1])#stampa la lista al contrario, perchè il passo è negativo e va da 3 a 1 escluso
 
-print(L[3:1:-1])
-
-print([1,2] + [4,2])
+print([1,2] + [4,2])#concatena le due liste, che 
 L+=[568]      #aggiunge un elemento alla lista
 L.append(568) #aggiunge un elemento alla lista
 print(L)
@@ -25,26 +25,28 @@ for x in L1:
     L2=L2+[x*2]
     
     print(L2)
+    
+L.append(123)
+print(L)
+L.append([123])
+print(L)
+L.append({"mario", "mariolini", 1})
+print(L)
 
 for x in L1:
     if type(x)==type(1):
-        L2.append(int(x)*2)
+        L2+=[int(x)*2]
     else:
-        L2.append(float(x)*2)
+        L2+=[float(x)*2]
         
 ord("A") #ritornna la posizione del carattere nella tabella ascii
 print(ord("B"))
 
 print(chr(68))#ritorna il caattere corrispondente alla posizione nella tabella ascii
-
-for i in range(26):
-    print("{i}=>{lettera}")
     
 import random 
-n=random.randint(10,100)
+n=random.randint(10,100) #estrae un numero casuale tra 10 e 100 compresi gli estremi
 print(n)
-
-random.random()
 
 print(random.choice("parola"))
 print(random.choice([31,37,43,47, "numero_primo", "primo", "numero"]))
@@ -53,24 +55,25 @@ print(random.choice([31,37,43,47, "numero_primo", "primo", "numero"]))
 #il risultato deve essere ad esempio spagna-francia, argentina-germania, marocco-brasile, giappone-svizzera , due squadre non ripetute e in ordine casuale
 squadre=["germania", "francia","spagna", "argentina", "marocco", "brasile", "svizzera", "giappone"]
 estratte=[]
+
 def estrai():
     global squadre, estratte #per poter usare le variabili globali dentro la funzione
-    s=random.choice(squadre)
     while True:
-        s=random.choice(squadre)
-        if s not in estratte:
-            estratte += [s]#aggiungo la squadra estratta alla lista delle squadre estratte
-            return s
+        squadra=random.choice(squadre)
+        if squadra not in estratte:
+            estratte += [squadra]#aggiungo la squadra estratta alla lista delle squadre estratte
+            return squadra
         
         
 for i in range(len(squadre)//2):
     s1=estrai()
     s2=estrai()
-    girone = chr(i+ord("A"))#chr converte un numero in carattere, ord converte un carattere in numero
+    girone = chr(i+ord("A")) #chr converte un numero in carattere, ord converte un carattere in numero
     print(f"{girone}: {s1}-{s2}")#una f-string è una stringa che contiene delle variabili, che vengono stampate all'interno della stringa, senza doverle convertire in stringa
     
 print("\n")
-    
+
+#un altro modo per fare la stessa cosa è il seguente:
 for j in range(len(squadre)//2):
     s1 = random.choice(squadre)
     squadre.remove(s1)
