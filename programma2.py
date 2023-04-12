@@ -6,7 +6,8 @@ stampa_ripetuta("mirco ", has_cornice=True, numero=5)#se non specifico l'ordine 
 
 import math  #importo tutte le funzioni di math
 print(math.ceil(7.8568)) #arrotonda per eccesso, mi devo ricordare di mettere math prima della funzione se non ho importato tutto
-
+print(max(1, 5, 9, 85, 68, 47, 548, 25, 35)) #mi ritorna il massimo tra i numeri passati come argomenti
+print(min(1, 5, 9, 85, 68, 47, 548, 25, 35)) #mi ritorna il minimo tra i numeri passati come argomenti
 def coppia():
     return "pippo", "pluto", "paperino", "minnie" #posso ritornare più valori, in questo caso due stringhe
 

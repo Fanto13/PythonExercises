@@ -15,7 +15,24 @@ def funzione(parametro):
     print(parametro)
     return parametro
 
+def saluto(stringa):
+    print(stringa)
+    return (stringa)
+
 funzione("daniele ha gia vinto")
+
+print(7//2)  # divisione intera con //
+print(7/2)  # altrimenti divide con la virgola
+print(8//7.5)
+saluto("Ciao a tutti")
+print(10**2)  # elevamento a potenza
+print(9**(1/2))  # radice quadrata
+print((-9)**(1/2))  # numeri complessi
+print(type((-9)**(1/2)))
+print(type(saluto("Ciao a tutti")))
+print("-"*20+"\n")  # ripeto la stringa
+print(5 == 6)
+print(type(5 == 6))
 
 #vs java
 #int funzione (int parametro){
@@ -46,6 +63,16 @@ for i in range(99, 110, 2):#range è un oggetto che genera una sequenza di numer
     print(i)
 #la funzione torna un oggetto che ci permette di iterare un loop for, per il decremento invece l'ultimo parametro è negativo
 
+# questi sono 3 modi alternativi per iterare un ciclo for
+for i in range(5):  # qui stampa tutti i valori da 0 a 5 escluso (0 non esplicitato)
+    print(i)
+for i in range(0, 5):  # qui stampa tutti i valori da 0 a 5 escluso (0 esplicitato)
+    print(i)
+for i in range(0, 5, 1):  # qui stampa tutti i valori da 0 a 5 escluso (con step da 1 e 0 esplicitato)
+    print(i)
+for i in range(5, 0, -1):  # qui stampa tutti i valori da 5 a 0 escluso (con step da -1)
+    print(i)
+    
 for fila in range (10):
     print(fila)
 
