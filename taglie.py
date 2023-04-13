@@ -1,16 +1,35 @@
-list1 = ["FR 60", "XS", "6XL", "S", 42, 43, "XL", 40, 46, 44, "M", 12, "IT 35", "IT 43", "FR 12", "UK 50", "XXL", "IT 50", "L",
-         "FR 43", "FR 44", "8XL", "45", "44", 44, "48", "6XL", "XS", "6XL", "pippo", "70", 70, "XL", "IT 470", "IT 70", "IT 450", "XXS", "3XS", "4XS"]
-
-
-taglie_numeriche = []
-taglie_francesi = []
-taglie_italiane = []
-taglie_inglesi = []
-taglie_europee = []
-taglie_europee_ordinate = []
-
-
-def ordina_e_stampa_europee():
+def separate_sizes():
+    # Separate the sizes into different lists
+    taglie_numeriche = []
+    taglie_francesi = []
+    taglie_italiane = []
+    taglie_inglesi = []
+    taglie_europee = []
+    taglie_europee_ordinate = []
+     for i in range(len(list1)):
+        if type(list1[i]) == int:
+            taglie_numeriche.append(list1[i])
+        elif type(list1[i]) == str and len(list1[i]) < 6:
+            if list1[i][0] == "F" and list1[i][1] == "R":
+                taglie_francesi.append(list1[i])
+            elif list1[i][0] == "I" and list1[i][1] == "T":
+                taglie_italiane.append(list1[i])
+            elif list1[i][0] == "U" and list1[i][1] == "K":
+                taglie_inglesi.append(list1[i])
+            elif list1[i].isnumeric():
+                taglie_numeriche.append(int(list1[i]))
+            elif len(list1[i]) < 4:
+                taglie_europee.append(list1[i])
+            else:
+                print(f"{list1[i]} is not a valid size")
+        else:
+            print(f"{list1[i]} is not a valid size")
+ def order_and_print(listx, listStr):
+    # Sort the list and print it
+    listx.sort()
+    print(f"{listStr}: {list(dict.fromkeys(listx))}")
+ def order_and_print_european():
+    # Sort the european sizes and print them
     temp1 = []  # 5,4,3XS
     temp0 = []  # XXS,XS,S
     temp2 = []  # M
@@ -42,7 +61,7 @@ def separa_taglie():
     for i in range(len(list1)):
         if type(list1[i]) == int:
             taglie_numeriche.append(list1[i])
-        elif type(list1[i]) == str and len(list1[i]) < 6:
+        elif type(list1[i]) == str and len(list1[i]) < 6:# and list1[i].isalpha():
             if list1[i][0] == "F" and list1[i][1] == "R":
                 taglie_francesi.append(list1[i])
             elif list1[i][0] == "I" and list1[i][1] == "T":
