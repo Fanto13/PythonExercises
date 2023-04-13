@@ -84,7 +84,7 @@ for j in range(len(squadre)//2):
     girone = chr(j+ord("A")) #fa la lista delle lettere dell'alfabeto ad ogni iterazione
     print(f"{girone}: {s1}-{s2}")
     
-#tuple come gli array, sono iterabilili e si potrà accedervi tramite indici. si scrivono tra parentesi tonde. in python è la cosa più vicina alla costante
+#tuple come gli array, sono iterabili e si potrà accedervi tramite indici. si scrivono tra parentesi tonde. in python è la cosa più vicina alla costante
 #le tuple una volta create non possono essere modificate
 #si usano per tornare i valori della funzioni e così abbiamo la garanzia che non venga aggiunto un nuovo oggetto
 [1,2,3]
