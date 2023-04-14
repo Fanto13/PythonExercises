@@ -10,10 +10,10 @@ class Fumetto:
         print("sono un fumetto")
         
     def __str__(self):
-        return f"{self.titolo} - {self.prezzo}"
+        return f"{self.titolo} - {self.prezzo}"#ritorno il titolo e il prezzo del fumetto e lo stampo con print(f)
         
 def Acquistami(self, quantita):
-        prezzo =  quantita * 5
+        prezzo =  quantita * self.prezzo
         print(prezzo)
         
 def Leggimi(self):
