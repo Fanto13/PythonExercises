@@ -15,18 +15,18 @@ class Fraction:
         else:
             self.numeratore = numeratore
             self.denominatore = denominatore
-        self.MCD()
+        self.MCD()#richiamo la funzione MCD, che mi riduce la frazione in forma ridotta e la salva in self.numeratore e self.denominatore 
     def MCD(self):
-        mcd = math.gcd(self.numeratore, self.denominatore)
+        mcd = math.gcd(self.numeratore, self.denominatore)#funzione che calcola il massimo comun denominatore tra due numeri, la funzione gcd è già presente in python e serve per calcolare il massimo comun divisore tra due numeri
         print("il massimo comun denominatore è:", mcd)
         self.numeratore = int(self.numeratore/mcd)
         self.denominatore = int(self.denominatore/mcd)
-    def __str__(self):
+    def __str__(self):#sovrascrivo la funzione str per poter stampare la frazione in forma ridotta
         if self.denominatore == 1:
-            return (f"{self.numeratore}")
+            return (f"{self.numeratore}")#ritorno il numeratore se il denominatore è 1
         else:
             return (f"{self.numeratore}/{self.denominatore}")
-    def __mul__(self, other):
+    def __mul__(self, other):#sovrascrivo la funzione per moltiplicare due frazioni
         numeratore = self.numeratore * other.numeratore
         denominatore = self.denominatore * other.denominatore
         
