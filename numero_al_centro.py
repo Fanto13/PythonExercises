@@ -1,6 +1,9 @@
 #devo stampare una cornicetta di cancelletti e al centro il numero che l'utente scrive raddoppiato, quindi abbiamo 9 colonne e 5 righe, senza if. quindi solo con cicli for
 
-txt = input()#inserisci il numero da inserire
+txt = input("inserisci un numero intero: ")#inserisci il numero da inserire
+if not txt.isnumeric():#se il numero inserito non è un numero
+    print("errore: devi inserire un numero intero")#stampa errore
+    exit()#esce dal programma
 numero = int(txt)#trasforma la stringa in numero
 
 numero_da_inserire_al_centro = numero * 2

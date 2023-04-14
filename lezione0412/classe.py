@@ -15,7 +15,9 @@ class Fumetto:
 def Acquistami(self, quantita):
         prezzo =  quantita * 5
         print(prezzo)
-
+        
+def Leggimi(self):
+        print(f"leggo il libro {self.titolo}")
 
 
 Fumetto.Acquistami = Acquistami #aggiungo il metodo Acquistami alla classe Fumetto, le funzionalità necessitno del self perchè sono definite globalmente, ed il primo oggetto è il parametro della funzione
