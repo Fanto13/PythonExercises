@@ -78,7 +78,7 @@ for fila in range (10):
 
     stringa_fila = ""
     for posto in range(10):
-        stringa_fila += "# "
+        stringa_fila += "# "#aggiungo uno spazio per separare i posti
 
     print(stringa_fila)
 #l'indentazione è molto importante, le nuove righe devono essere allineate con la riga sopra per far capire che sono all'interno della stesso blocco di codice
