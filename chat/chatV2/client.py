@@ -29,7 +29,7 @@ print("scrivi il tuo messaggio, che sarà visualizzato dai partecipanti, per usc
 while True:
     # leggo l'input dall'utente
     msg = input()
-    print (nickname, msg) # stampo il messaggio che sto inviando
+    print ("utente: " + nickname + " ", "messaggio:"+ msg) # stampo il messaggio che sto inviando
     
     
     # controllo se l'utente ha inserito "/quit"
