@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var carrello = [];
+
+        function addProduct() {
+            let prodotto = prodottoTXT.value;
+            carrello.push(prodotto);
+
+            stampa();
+            event.preventDefault(); // submit del form
+        }
+
+        function stampa() {
+            carrelloUL.innerHTML = "";
+            for (let item of carrello) {
+                // carrelloUL.innerHTML = "<li>" + item + "</li>"
+                carrelloUL.innerHTML += `<li>${item}</li>`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit="addProduct()">
+        <input type="text" id="prodottoTXT">
+        <button>Aggiungi</button>
+    </form>
+
+    <ul id="carrelloUL">
+
+    </ul>
+
+</body>
+
+</html>
