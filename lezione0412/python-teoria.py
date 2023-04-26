@@ -84,5 +84,5 @@ for fila in range (10):
 #l'indentazione è molto importante, le nuove righe devono essere allineate con la riga sopra per far capire che sono all'interno della stesso blocco di codice
 
 txt = input()
-numero = int(txt)#trasforma la stringa in numero
+#numero = int(txt)#trasforma la stringa in numero
 print(txt)#per leggere una cosa è sempre txt = input()
