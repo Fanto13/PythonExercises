@@ -1,0 +1,70 @@
+{
+  "_msgid": "98af79906d171cb3",
+  "payload": {
+    "id": 801,
+    "weather": "Clouds",
+    "detail": "few clouds",
+    "icon": "02d",
+    "tempk": 295.62,
+    "tempc": 22.4,
+    "temp_maxc": 22.8,
+    "temp_minc": 20.5,
+    "humidity": 51,
+    "pressure": 1020,
+    "maxtemp": 295.99,
+    "mintemp": 293.71,
+    "windspeed": 2.07,
+    "winddirection": 96,
+    "location": "Provincia di Ferrara",
+    "sunrise": 1683172725,
+    "sunset": 1683224406,
+    "clouds": 14,
+    "description": "The weather in Provincia di Ferrara at coordinates: 44.8, 11.8333 is Clouds (few clouds)."
+  },
+  "location": {
+    "lon": 11.8333,
+    "lat": 44.8,
+    "city": "Provincia di Ferrara",
+    "country": "IT"
+  },
+  "data": {
+    "coord": { "lon": 11.8333, "lat": 44.8 },
+    "weather": [
+      {
+        "id": 801,
+        "main": "Clouds",
+        "description": "few clouds",
+        "icon": "02d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 295.62,
+      "feels_like": 295.25,
+      "temp_min": 293.71,
+      "temp_max": 295.99,
+      "pressure": 1020,
+      "humidity": 51,
+      "sea_level": 1020,
+      "grnd_level": 1021
+    },
+    "visibility": 10000,
+    "wind": { "speed": 2.07, "deg": 96, "gust": 2.15 },
+    "clouds": { "all": 14 },
+    "dt": 1683205200,
+    "sys": {
+      "type": 2,
+      "id": 2007888,
+      "country": "IT",
+      "sunrise": 1683172725,
+      "sunset": 1683224406
+    },
+    "timezone": 7200,
+    "id": 3177088,
+    "name": "Provincia di Ferrara",
+    "cod": 200
+  },
+  "time": "2023-05-04T13:00:00.000Z",
+  "title": "Current Weather Information",
+  "description": "Current weather information at coordinates: 44.8, 11.8333"
+}
