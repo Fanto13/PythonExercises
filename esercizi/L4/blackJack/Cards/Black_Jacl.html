@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <style>
+        header>h1{
+            text-align: center;
+        }
+        .TotCarte{
+            margin:2rem;
+        }
+    </style>
+    <script>
+        class Carta{ 
+            constructor(){
+                this.RandNum=Math.floor(Math.random() * 13)+1;
+                this.RandTipo=Math.floor(Math.random() * 4);
+            }
+
+            Stampa(nome){
+                let t=document.querySelector(`#${nome}`);
+                let tipo;
+                switch (this.RandTipo) {
+                    case 0:
+                        tipo='P';
+                        break;
+                    case 1:
+                        tipo='Q';
+                        break;
+                    case 2:
+                        tipo='C';
+                        break;
+                    case 3:
+                        tipo='F';
+                        break;
+                    default:
+                        break;
+                }
+                t.innerHTML+=`<img src="${this.RandNum}${tipo}.PNG" class="TotCarte">`;
+            }
+        };
+
+        class Mazzo{
+            constructor(Utente){
+                this.Elenco=[];
+                this.Utente=Utente;
+            }
+
+            InserisciCarta(){
+                let carta=new Carta();
+                this.Elenco.push(carta);
+                carta.Stampa(this.Utente);
+            }
+
+            Punteggio(){
+                let somma=0;
+                for(let carta of this.Elenco){
+                    somma+=carta.RandNum;
+                }
+                return somma;
+            }
+        }
+        class Partita{
+            constructor(){
+                this.cartaUtente=new Mazzo("CarteUtente");
+                this.cartePC=new Mazzo("CartePC");
+            }
+            IniziaPartita(){
+                this.cartaUtente.InserisciCarta();
+                this.cartaUtente.InserisciCarta();
+                this.cartePC.InserisciCarta();
+                this.cartePC.InserisciCarta();
+            }
+
+            UtentePesca(){
+                this.cartaUtente.InserisciCarta();
+                alert(this.cartaUtente.Punteggio());
+            }
+
+            PCPesca(){
+                this.cartePC.InserisciCarta();
+            }
+        };
+
+        var match;
+
+        function Inizio(){
+            match=new Partita();
+            match.IniziaPartita();
+
+        }
+
+        function Pesca(){
+            match.UtentePesca();
+        }
+
+        function Lascia(){
+            for(let i=0; i<=3; i++){
+                match.PCPesca();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="item-left">Black Jack</h1>
+    </header>
+    
+    <main>
+        <button onclick="Inizio()">Inizia</button>
+        <button onclick="Pesca()">Pesca</button>
+        <button onclick="Lascia()">Lascia</button>
+        <section id="CarteUtente">
+            <p></p>
+        </section>
+        <section id="CartePC">
+            <p></p>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>

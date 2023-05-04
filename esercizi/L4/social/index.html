@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+        var messaggi = [];
+        loadData();
+
+        function loadData() {
+            let toParse = localStorage.getItem("messaggi");
+            if (toParse != undefined)
+                messaggi = JSON.parse(toParse);
+        }
+
+        function saveData() {
+            let parsed = JSON.stringify(messaggi)
+            localStorage.setItem("messaggi", parsed);
+        }
+
+
+
+        $("document").ready(stampaMessaggi)
+
+        toParse = localStorage.getItem("logged");
+        let isLogged = JSON.parse(toParse);
+
+        if (isLogged != true) {
+            window.location = "login.html";
+        }
+
+        function inserisciMessaggio() {
+            let messaggio = messaggioTXT.value;
+            messaggi.push(messaggio);
+
+            stampaMessaggi();
+            saveData();
+        }
+
+        function stampaMessaggi() {
+            let html = "";
+            for (let i = 0; i < messaggi.length; i++) {
+                html += /*html*/ `<div>${messaggi[i]}</div>`;
+            }
+            bacheca.innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <textarea id="messaggioTXT"></textarea>
+
+    <button onclick="inserisciMessaggio()">Pubblica</button>
+
+    <div id="bacheca">
+
+    </div>
+</body>
+
+</html>

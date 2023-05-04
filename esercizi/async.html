@@ -1,0 +1,46 @@
+<div onclick="this.innerHTML = 'oaic oaic oaic'">ciao ciao ciao</div>
+
+
+<script>
+	var obj;
+
+	function elabora(data) {
+		for(let x of obj.country) {
+			document.write(`<p>${x.country_id} ${x.probability}</p>`)
+		}
+	}
+
+	async function dati() {
+		// ?name=nathaniel è una query string
+		// let promessa = fetch("https://api.nationalize.io?name=nathaniel")
+		// let obj_json = promessa.then((response) => response.json())
+		// let res = obj_json.then((data) => {
+		// 	console.log(data);
+		// 	obj = data;
+		// })
+		
+		// console.log(res)
+
+
+		fetch("https://api.nationalize.io?name=nathaniel")
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				obj = data;
+
+				elabora(obj)
+			});
+
+		console.log(obj)
+
+	}
+
+	var a = 10;
+	console.log(a);
+
+	dati()
+
+	a = 5;
+	console.log(a);
+
+</script>

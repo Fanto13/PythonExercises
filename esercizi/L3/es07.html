@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="burgerMenu.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210401151214/What-is-Website.png);
+        }
+        
+        #menu {
+            opacity: 0%;
+            padding: 50px;
+            ;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255 255 255 / 50%);
+            backdrop-filter: blur(50px);
+            transition: all 1.0s linear;
+        }
+        
+        #menu.opened {
+            opacity: 100%;
+        }
+        
+        #menu>div {
+            padding: 10px;
+            background-color: rgb(255 255 255 / 50%);
+            width: 500px;
+            margin-bottom: 20px;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+        
+        #menu>div:hover {
+            background-color: rgb(255 202 199);
+        }
+        
+        #burger {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            right: 50px;
+            top: 50px;
+            cursor: pointer;
+        }
+        
+        #burger>div {
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            background-color: black;
+            box-shadow: 0 2px 5px rgb(255 255 255 / 10%);
+            border-radius: 10px;
+            transform: rotateZ(0deg);
+            transition: all 0.5s linear;
+        }
+        
+        #burger>div:first-child {
+            top: 20%;
+        }
+        
+        #burger>div:nth-child(2) {
+            left: 0%;
+            top: 50%;
+        }
+        
+        #burger>div:last-child {
+            top: 80%;
+        }
+        
+        #burger.opened>div:first-child {
+            transform: rotateZ(45deg);
+            top: 50%;
+        }
+        
+        #burger.opened>div:last-child {
+            transform: rotateZ(-45deg);
+            top: 50%;
+        }
+        
+        #burger.opened>div:nth-child(2) {
+            width: 0%;
+            left: 50%;
+            opacity: 0%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="menu">
+        <div>Index</div>
+        <div>Gallery</div>
+        <div>Contact</div>
+        <div>Work with us</div>
+    </div>
+
+    <div id="burger" onclick="OpenMenu(this)">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

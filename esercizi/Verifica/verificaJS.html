@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="pagina">
+        <header>
+            <h1>CINEMA</h1>
+        </header>
+        <h2>Seleziona posto</h2>
+        <section id="posti">
+            <div id="tabella">
+                <table id="t">
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <section id="prenotazione">
+                <h1>PRENOTAZIONE</h1>
+                <p>
+                    <label for="txtnfila">Posto fila</label>
+                    <input type="number" id="txtnfila" readonly>
+                </p>
+                <p>
+                    <label for="txtnumero">Numero posto</label>
+                    <input type="number" id="txtnumero" readonly>
+                </p>
+                <p>
+                    <label for="txtnome">Nome</label>
+                    <input type="text" id="txtnome">
+                </p>
+                <p>
+                    <label for="txtcognome">Cognome</label>
+                    <input type="text" id="txtcognome">
+                </p>
+                <p>
+                    <button onclick="prenota()">Prenota</button>
+                    <button onclick="cancella()">Cancella</button>
+                </p>
+            </section>
+        </section>
+        <button onclick="salva()">Salva</button>
+        <button onclick="carica()">Carica</button>
+    </div>
+</body>
+
+<script>
+    var posti = [];
+    const file = 10;
+    const postiPerFila = 15;
+
+    // molto utile da utilizzare in diverse altre funzioni, inultile in questo punto specifico del codice
+    let p = {
+        fila: "",
+        posto: "",
+        nome: "",
+        cognome: "",
+        prenotato: false,
+    };
+
+    // molto utile da utilizzare in diverse altre funzioni, inultile in questo punto specifico del codice
+    let idx = (posto - 1) + (fila - 1) * postiPerFila;
+
+    // molto utile da utilizzare in diverse altre funzioni, inultile in questo punto specifico del codice
+    let p = parseInt(posto.value)
+    let f = fila.value.charCodeAt(0) - 65
+    // charCodeAt(0) prende il primo carattere di una stringa e lo trasforma nel corrispondente numero ASCII, sottraendo 65 da 'A' si ottiene 1
+
+
+    // molto utile da utilizzare in diverse altre funzioni, inultile in questo punto specifico del codice
+    String.fromCharCode(64 + f)
+    // prendendo il numero progressivo della fila contenuto in f ritorna la corrispondente lettera
+
+    function creaCinema() {
+        for (let fila = 1; fila <= file; fila++) {
+            for (let posto = 1; posto <= postiPerFila; posto++) {
+                let p = {
+                    fila: fila,
+                    posto: posto,
+                    nome: "",
+                    cognome: "",
+                    prenotato: false,
+                };
+                posti.push(p);
+            }
+        }
+    }
+
+    function cancella() {
+        // TODO
+
+        generaPosti();
+    }
+
+    function prenota() {
+        // TODO
+
+        generaPosti();
+    }
+
+    function generaPosti() {
+        for (let fila = 1; fila <= file; fila++) {
+
+            for (let posto = 1; posto <= postiPerFila; posto++) {
+
+                let idx = (posto - 1) + (fila - 1) * postiPerFila;
+            }
+        }
+              
+    }
+
+
+    function pulsantePrenota(fila, posto) {
+
+    }
+
+    function pulsanteModificaPrenotazione(fila, posto) {
+
+    }
+
+
+    function salva() {
+
+    }
+
+
+    function carica() {
+
+    }
+
+
+    creaCinema();
+    generaPosti();
+</script>
+
+</html>

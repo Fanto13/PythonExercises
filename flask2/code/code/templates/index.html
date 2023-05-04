@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="/static/js/app.js"></script> 
+    <script>
+        function salva() {
+            stringaJSON = JSON.stringify(carrello);
+            //carico il carrello nel localStorage del browser, e lo salvo come stringa JSON
+            localStorage.setItem("carrello", stringaJSON);
+        }
+            
+        function carica() {
+            //contiene la stringa JSON del carrello caricandolo dal localStorage del browser, poi ne esegue il parsing
+            stringaJSON = localStorage.getItem("carrello");
+            oggetto = JSON.parse(stringaJSON);
+            //se è presente un oggetto, lo assegno alla variabile carrello e 
+            if (oggetto)
+                carrello = oggetto;
+            stampa()
+        }
+
+        function paga() {
+            postData("/paga", carrello);
+        }
+
+        //la funzione è asincrona perchè aspetta la risposta del server
+        async function postData(url = "", data = {}) {
+            //inserisce il token nel body della richiesta, fetch prende in ingresso l'url e un oggetto con le opzioni della richiesta
+            const response = await fetch(url, {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                redirect: "follow",
+                referrerPolicy: "no-referrer",
+                //se il token è presente, lo inserisco nel body della richiesta e lo invio al server
+                body: JSON.stringify(data),
+            });
+            return response.json();
+        }
+    </script>
+</head>
+
+<body>
+    
+    <form onsubmit="addProduct()">
+        <input type="text" id="prodottoTXT">
+        <button id="aggiungiBTN">Aggiungi</button>
+    </form>
+
+    <ul id="carrelloUL">
+        <!-- <li>prodotto</li> -->
+    </ul>
+
+    <button onclick="salva()">Salva</button>
+    <button onclick="carica()">Carica</button>
+    <button onclick="paga()">Paga</button>
+
+    <div class="blur"></div>
+    <script>
+        //carica();
+    </script>
+</body>
+
+</html>

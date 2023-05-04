@@ -1,0 +1,35 @@
+<script>
+    function somma() {
+        var n0 = parseInt(n0txt.value);
+        var n1 = parseInt(n1txt.value);
+        risultato.innerHTML = n0 + n1;
+    }
+
+    function sottrazione() {
+        var n0 = parseInt(n0txt.value);
+        var n1 = parseInt(n1txt.value);
+        risultato.innerHTML = n0 - n1;
+    }
+
+    function moltiplicazione() {
+        var n0 = parseInt(n0txt.value);
+        var n1 = parseInt(n1txt.value);
+        risultato.innerHTML = n0 * n1;
+    }
+
+    function divisione() {
+        var n0 = parseInt(n0txt.value);
+        var n1 = parseInt(n1txt.value);
+        risultato.innerHTML = n0 / n1;
+    }
+</script>
+<input id="n0txt" type="number">
+<input id="n1txt" type="number">
+<div id="risultato"></div>
+
+<button onclick="somma()">+</button>
+<button onclick="sottrazione()">-</button>
+<button onclick="moltiplicazione()">*</button>
+<button onclick="divisione()">/</button>
+<button onclick="potenza()">^</button>
+<button onclick="modulo()">%</button>

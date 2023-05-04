@@ -1,0 +1,47 @@
+<style>
+    h1 {
+        font-size: 100px;
+        font-family: monospace;
+        text-shadow: 0 2px 5px rgb(255 0 0 / 50%);
+    }
+</style>
+
+<script>
+    function fibonacci(n) {
+        if (n <= 2) {
+            return 1;
+        }
+        ultimo = 1;
+        penultimo = 1;
+        for (var i = 2; i < n; i++) {
+            corrente = ultimo + penultimo;
+
+            penultimo = ultimo;
+            ultimo = corrente;
+        }
+        return corrente;
+    }
+
+    function esegui() {
+
+        var n = parseInt(valoreTXT.value);
+
+        var res = fibonacci(n);
+        // document.write("<h1>" + res + "</h1");
+        risultatoH1.innerHTML = res;
+
+        //document.write(`<h1>${res}</h1>`);
+
+        if (res % 2 == 0) {
+            risultatoH1.innerHTML += " è pari!";
+            //document.write("è pari!");
+        } else {
+            document.getElementById("risultatoH1").innerHTML += " è dispari!";
+            //document.write("è dispari!");
+        }
+    }
+</script>
+
+<input id="valoreTXT" type="number" placeholder="Inserisci numero">
+<button onclick="esegui()">Calcola</button>
+<h1 id="risultatoH1">Risultato!</h1>

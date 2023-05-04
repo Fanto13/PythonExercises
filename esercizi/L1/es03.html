@@ -1,0 +1,88 @@
+<!-- LISTA DELLA SPESA -->
+<script>
+    var carrello = [];
+
+    var prodotto = "";
+
+    function RidisegnaCarrello() {
+        listaUL.innerHTML = "";
+        for (var i = 0; i < carrello.length; i++) {
+            listaUL.innerHTML += /*html*/ `
+            <li>
+                ${carrello[i].nome} - ${carrello[i].quantita}
+                <button onclick="AggiungiProdotto('${carrello[i].nome}')">+</button>
+                <button onclick="RimuoviProdotto('${carrello[i].nome}')">-</button>
+            </li>
+            `;
+        }
+    }
+
+    function NelCarrello(prodotto) {
+        for (var i = 0; i < carrello.length; i++) {
+            if (carrello[i].nome == prodotto) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function IncrementaQuantita(prodotto) {
+        for (var i = 0; i < carrello.length; i++) {
+            if (carrello[i].nome == prodotto) {
+                carrello[i].quantita += 1;
+                break;
+            }
+        }
+    }
+
+    function DecrementaQuantita(prodotto) {
+        for (var i = 0; i < carrello.length; i++) {
+            if (carrello[i].nome == prodotto) {
+                carrello[i].quantita -= 1;
+                break;
+            }
+        }
+    }
+
+    function Aggiungi() {
+        var prodotto = prodottoTXT.value;
+
+        if (NelCarrello(prodotto) == false) {
+            var item = {
+                nome: prodotto,
+                quantita: 1
+            }
+            carrello.push(item);
+        } else {
+            IncrementaQuantita(prodotto);
+        }
+        RidisegnaCarrello();
+        //listaUL.innerHTML += `<li>${prodotto}</li>`;
+    }
+
+    function AggiungiProdotto(prodotto) {
+        if (NelCarrello(prodotto) == false) {
+            var item = {
+                nome: prodotto,
+                quantita: 1
+            }
+            carrello.push(item);
+        } else {
+            IncrementaQuantita(prodotto);
+        }
+        RidisegnaCarrello();
+    }
+
+    function RimuoviProdotto(prodotto) {
+        if (NelCarrello(prodotto) == false) {
+            alert("PRODOTTO NON TROVATO");
+        } else {
+            DecrementaQuantita(prodotto);
+        }
+        RidisegnaCarrello();
+    }
+</script>
+
+<input id="prodottoTXT" type="text" placeholder="Prodotto">
+<button onclick="Aggiungi()">Aggiungi al carrello</button>
+<ul id="listaUL"></ul>

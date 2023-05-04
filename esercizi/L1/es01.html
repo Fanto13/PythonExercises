@@ -1,0 +1,71 @@
+<script>
+    // #8
+    document.write("ciao");
+    document.write("<h1>è presto per mettere via</h1>");
+
+    // #7
+    var casa = {};
+    casa.indirizzo = "via Rossi 4";
+    casa.finestre = 10;
+    alert(casa.finestre);
+
+    casa = {
+        indirizzo: "via Verdi 2",
+        finestre: 8,
+        proprietario: {
+            nome: "luca",
+            cognome: "paolo"
+        }
+    }
+    alert(casa.proprietario.nome)
+    alert(casa.proprietario["cognome"]);
+    casa.proprietario["casa"] = casa;
+
+    // #6
+    function procedura(a, b, c) {
+        a = b + c;
+        b = c + a;
+    }
+    // #5
+    function problematica(param) {
+        if (param == 5) {
+            param = 8;
+            return 6;
+        } else {
+            p = 7;
+        }
+    }
+    var p = 2;
+    var res = problematica(p);
+    alert(res + " " + p);
+
+    // #4
+    var j = 2;
+    for (var i = 0; i < 3; i++) {
+        // j = j * j;
+        j *= j;
+    }
+    alert(j + " " + i);
+
+    // #3
+    var z;
+    var y = null;
+    if (z != 8) {
+        alert("eccomi")
+    }
+    if (z === y) {
+        alert("questa cosa non ci piace");
+    }
+
+    // #2
+    d = 11
+    e = "ciao ";
+    f = d + e
+    alert(f)
+
+    // #1
+    var a = 5;
+    var b = 2;
+    var c = a * b;
+    alert(c);
+</script>
