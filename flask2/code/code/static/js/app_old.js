@@ -24,7 +24,7 @@ function addProduct() {
     }
     stampa();
 }
-
+//un sample di prodotto è {nome: "prodotto", prezzo: 10, quantita: 1}
 function addNewProduct(nome) {
     let prodotto = {
         nome: nome,

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Caricatore di file</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+      }
+      .upload-form {
+        margin-bottom: 20px;
+      }
+      .upload-form input[type="file"] {
+        margin-right: 10px;
+      }
+      .upload-form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+      .upload-form input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Caricatore di file</h1>
+    <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" multiple>
+      <input type="submit" value="Carica">
+    </form>
+
+    <h2>File caricati:</h2>
+    <ul>
+      {% for file in files %}
+      <li><a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

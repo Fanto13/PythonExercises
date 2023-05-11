@@ -17,8 +17,9 @@
         }
 
         function carica() {
+            //prendo l'oggetto in formato JSON carrello e lo assegno a una variabile 
             stringaJSON = localStorage.getItem("carrello");
-            oggetto = JSON.parse(stringaJSON);
+            oggetto = JSON.parse(stringaJSON);//viene eseguito il parsing del JSON
             if (oggetto)
                 carrello = oggetto;
             stampa()
@@ -27,7 +28,7 @@
         function paga() {
             postData("/paga", carrello);
         }
-
+        //questa funzione asincrona serve per fare una richiesta POST al server, che restituisce un JSON che viene parsato e assegnato alla variabile oggetto
         async function postData(url = "", data = {}) {
             const response = await fetch(url, {
                 method: "POST",
@@ -47,7 +48,7 @@
 </head>
 
 <body>
-
+    <!--aggiungo il bottone per inviare -->
     <form onsubmit="addProduct()">
         <input type="text" id="prodottoTXT">
         <button id="aggiungiBTN">Aggiungi</button>
