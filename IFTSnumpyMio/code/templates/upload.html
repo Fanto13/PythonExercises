@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload File</title>
+  </head>
+  <body>
+    <h1>Caricamento File</h1>
+    <form action="uploader" id="upload" method="post" enctype="multipart/form-data">
+      <label for="file">Seleziona un file:</label>
+      <input multiple type="file" name="file" id="file" accept="image/*" />
+      <button type="submit">Carica</button>
+    </form>
+    <button onclick="window.location.href='/folders'">Visualizza File</button>
+    <script src="../static/js/index.js"></script>
+  </body>
+</html>

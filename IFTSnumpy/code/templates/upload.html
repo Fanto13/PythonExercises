@@ -1,56 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Caricatore di file</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-      h1 {
-        margin-bottom: 20px;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      li {
-        margin-bottom: 10px;
-      }
-      a {
-        text-decoration: none;
-        color: #007bff;
-      }
-      .upload-form {
-        margin-bottom: 20px;
-      }
-      .upload-form input[type="file"] {
-        margin-right: 10px;
-      }
-      .upload-form input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        cursor: pointer;
-      }
-      .upload-form input[type="submit"]:hover {
-        background-color: #0056b3;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Caricatore di file</h1>
-    <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" multiple>
-      <input type="submit" value="Carica">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form method="POST" action="uploader" enctype="multipart/form-data" id="upload">
+        <!-- <input type="file" id="file" name="file" accept="image/*"> -->
+        <!-- <input multiple type="file" id="file" name="file" accept="image/*"> -->
+        <input multiple type="file" id="file" name="file">
+        <button>Invia</button>
     </form>
 
-    <h2>File caricati:</h2>
-    <ul>
-      {% for file in files %}
-      <li><a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a></li>
-      {% endfor %}
-    </ul>
-  </body>
+    <script>
+        file.addEventListener("change", () => {
+            console.log(file.files[0]);
+        })
+    </script>
+
+</body>
+
 </html>
